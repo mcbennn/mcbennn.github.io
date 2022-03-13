@@ -47,11 +47,11 @@
             var refresh = urlParams.get('refresh');
             var dataurl = urlParams.get('dataurl');
 
-            goal = goal ? goal : "2000000"
+            goal = goal ? goal : "300000"
             height = height ? height : "32"
             color = color ? color : "3F2682"
             refresh = refresh ? refresh : "30"
-            start = start ? start : "1"
+            start = start ? start : "0"
 
             refresh = refresh * 1000
             titleSize = Math.round(height * 80 / 100)
@@ -67,7 +67,7 @@
 
                 amount = Math.round(data['totalAmount'] / 100);
                 if (start == 0) {
-                    amount = amount - 1641381;
+                    amount = amount - 1641110;
                 }
                 percent = Math.round(amount / goal * 100);
 
