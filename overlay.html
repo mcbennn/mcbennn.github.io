@@ -71,6 +71,10 @@
                 }
                 percent = Math.round(amount / goal * 100);
 
+                if (percent < 10) {
+                    percent = 10;
+                }
+
                 console.log("success:" + amount + "-" + percent);
 
                 $("#progressbar-value").css("width", percent + "%")
