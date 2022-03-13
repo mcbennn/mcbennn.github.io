@@ -41,6 +41,7 @@
 
             const urlParams = new URLSearchParams(window.location.search);
             var goal = urlParams.get('goal');
+            var start = urlParams.get('start');
             var height = urlParams.get('height');
             var color = urlParams.get('color');
             var refresh = urlParams.get('refresh');
@@ -50,6 +51,7 @@
             height = height ? height : "32"
             color = color ? color : "3F2682"
             refresh = refresh ? refresh : "30"
+            start = start ? start : "1"
 
             refresh = refresh * 1000
             titleSize = Math.round(height * 80 / 100)
@@ -63,7 +65,10 @@
 
             $.getJSON(dataurl, function(data) {
 
-                amount = (amount > 0) ? amount + 50000 : (data['totalAmount'] / 100)
+                amount = Math.round(data['totalAmount'] / 100);
+                if (start == 0) {
+                    amount = amount - 1641381;
+                }
                 percent = Math.round(amount / goal * 100);
 
                 console.log("success:" + amount + "-" + percent);
